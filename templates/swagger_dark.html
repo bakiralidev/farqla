@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Farqla API – Dark Swagger</title>
+
+  <!-- Swagger UI asosiy CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">
+
+  <!-- Dark theme (Monokai) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-monokai.css">
+
+  <style>
+    body { background:#121212; }
+    .topbar { background:#1e1e1e; }
+  </style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+
+  <!-- Swagger UI JS -->
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script>
+    window.onload = () => {
+      window.ui = SwaggerUIBundle({
+        url: "/swagger.json",            // drf_yasg schema (JSON)
+        dom_id: "#swagger-ui",
+        deepLinking: true,
+        presets: [SwaggerUIBundle.presets.apis],
+        layout: "BaseLayout",
+        persistAuthorization: true,
+        displayRequestDuration: true,
+        tryItOutEnabled: true,
+        filter: true,
+      });
+    };
+  </script>
+</body>
+</html>

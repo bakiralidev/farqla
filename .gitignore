@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Venv / Virtualenv
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE & Editor
+.vscode/
+.idea/
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static/
+tmp/
+*.mo
+
+# Environment configs
+.env.local
+.env.production
+.env.development
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Pytest / Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Cache
+cache/
+*.cache
+
+# Migrations (ixtiyoriy — lekin tavsiya ETILMAYDI)
+# Agar qo‘ymoqchi bo‘lsang kommentni olib tashla:
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Docker
+docker-compose.override.yml
+*.pid
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Pylint
+pylint-report.txt
+pylint-output.txt
