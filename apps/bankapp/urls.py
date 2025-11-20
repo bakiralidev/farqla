@@ -2,6 +2,8 @@
 from rest_framework.routers import DefaultRouter
 from django.urls import path, include
 from .views_clicks import go_redirect
+from .views import CurrencyConvertAPIView
+
 
 from .views import (
     BankViewSet, CardViewSet, CreditViewSet,
@@ -21,6 +23,7 @@ router.register(r"p2p-offers", P2POfferViewSet)
 urlpatterns = [
     path("", include(router.urls)),
     path("go/<str:model_name>/<int:pk>/<str:field_name>/", go_redirect, name="go_redirect"),
+    path("currency/convert/", CurrencyConvertAPIView.as_view(), name="currency-convert"),
 ]
 
 

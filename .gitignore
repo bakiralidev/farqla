@@ -23,6 +23,13 @@ venv.bak/
 *.sqlite3
 db.sqlite3
 media/
+bank_images/
+card_images/
+insurance/
+qurilmalar/
+simkartalar/
+provayderlar/
+
 staticfiles/
 static/
 tmp/

@@ -15,7 +15,10 @@ from .filters import (
     BankFilter, CardFilter, CreditFilter,
     DepositFilter, CurrencyFilter, P2PFilter
 )
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import CurrencyConvertSerializer
 
 # -------- Universal ruxsatlar --------
 class DefaultPermissionMixin:
@@ -100,3 +103,18 @@ class P2POfferViewSet(DefaultPermissionMixin, viewsets.ModelViewSet):
     search_fields = ["app__name", "from_scheme", "to_scheme", "commission_note", "description"]
     ordering_fields = ["commission_value", "sort_order", "starts_at", "ends_at", "created_at"]
     ordering = ["app__name", "sort_order"]
+
+
+
+
+class CurrencyConvertAPIView(APIView):
+    """
+    POST /api/currency/convert/
+    """
+    def post(self, request, *args, **kwargs):
+        serializer = CurrencyConvertSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        result_data = serializer.calculate()
+
+        return Response(result_data, status=status.HTTP_200_OK)
